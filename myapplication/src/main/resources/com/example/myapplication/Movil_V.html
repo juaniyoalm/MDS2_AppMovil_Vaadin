@@ -1,0 +1,81 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-css-layout size-full>
+   <vaadin-css-layout style-name="padding-right padding-bottom padding-left" size-full>
+    <vaadin-css-layout style-name="content-section padding" width-full height="600px">
+     <vaadin-vertical-layout>
+      <vaadin-menu-bar>
+       <menu>
+         Fijo 
+       </menu>
+       <menu>
+         Movil 
+       </menu>
+       <menu>
+         Fibra 
+       </menu>
+       <menu>
+         Tv 
+       </menu>
+       <menu>
+         Combis 
+       </menu>
+      </vaadin-menu-bar>
+      <vaadin-horizontal-layout width-full>
+       <vaadin-label plain-text>
+         Oferta 
+       </vaadin-label>
+       <vaadin-combo-box placeholder="Movil ilimitado" width-full data-item-type="java.lang.String" :expand>
+        <option item="Option1">Movil ilimitado+4GB</option>
+        <option item="Option2">Movil ilimitado+3GB</option>
+        <option item="Option3">Movil ilimitado+2GB</option>
+       </vaadin-combo-box>
+       <vaadin-button plain-text>
+         Añadir Oferta 
+       </vaadin-button>
+      </vaadin-horizontal-layout>
+      <vaadin-vertical-layout>
+       <vaadin-horizontal-layout>
+        <vaadin-label plain-text>
+          Nombre 
+        </vaadin-label>
+        <vaadin-text-field placeholder="movil ilimitado"></vaadin-text-field>
+        <vaadin-button icon="fonticon://Vaadin-Icons/e7fa" plain-text></vaadin-button>
+        <vaadin-check-box-group data-item-type="java.lang.String">
+         <option item="visible">Visible</option>
+        </vaadin-check-box-group>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout>
+        <vaadin-label plain-text>
+          Precio 
+        </vaadin-label>
+        <vaadin-text-field placeholder="34,94"></vaadin-text-field>
+        <vaadin-button icon="fonticon://Vaadin-Icons/e7fa" plain-text></vaadin-button>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout width-full>
+        <vaadin-label plain-text>
+          Caracteristicas 
+        </vaadin-label>
+        <vaadin-text-area placeholder="caracteristicas del producto" width-full :expand></vaadin-text-area>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout :right>
+        <vaadin-button plain-text :right>
+          Guardar cambios 
+        </vaadin-button>
+        <vaadin-button plain-text :right>
+          Eliminar 
+        </vaadin-button>
+       </vaadin-horizontal-layout>
+      </vaadin-vertical-layout>
+     </vaadin-vertical-layout>
+    </vaadin-css-layout>
+   </vaadin-css-layout>
+  </vaadin-css-layout>
+ </body>
+</html>

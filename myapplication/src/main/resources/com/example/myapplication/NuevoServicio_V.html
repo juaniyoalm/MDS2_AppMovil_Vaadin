@@ -1,0 +1,33 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-label width-full plain-text>
+     Añadir servicio 
+   </vaadin-label>
+   <vaadin-horizontal-layout height-full :expand>
+    <vaadin-label plain-text>
+      Servicio 
+    </vaadin-label>
+    <vaadin-combo-box data-item-type="java.lang.String">
+     <option item="Option1">Option 1</option>
+     <option item="Option2">Option 2</option>
+     <option item="Option3">Option 3</option>
+    </vaadin-combo-box>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout :right>
+    <vaadin-button plain-text>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button plain-text>
+      Aceptar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

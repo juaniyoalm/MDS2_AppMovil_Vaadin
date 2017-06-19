@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<classpath>
+	<classpathentry excluding="com/example/myapplication/" kind="src" path="myapplication/src/main/java"/>
+	<classpathentry kind="src" path="myapplication/src/main/java/com/example/myapplication"/>
+	<classpathentry kind="lib" path="myapplication/lib/orm.jar"/>
+	<classpathentry kind="con" path="org.eclipse.jdt.launching.JRE_CONTAINER"/>
+	<classpathentry kind="output" path="myapplication/target/classes"/>
+</classpath>

@@ -1,0 +1,51 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.2">
+ </head>
+ <body>
+  <vaadin-vertical-layout>
+   <vaadin-label width-full plain-text>
+     Nº incidencia 
+   </vaadin-label>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-label plain-text>
+      Estado: 
+    </vaadin-label>
+    <vaadin-check-box-group width-full data-item-type="java.lang.String" :expand>
+     <option item="estadoServicio"></option>
+    </vaadin-check-box-group>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-label plain-text>
+      Comercial: 
+    </vaadin-label>
+    <vaadin-text-field width-full :expand></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-label plain-text>
+      Fecha: 
+    </vaadin-label>
+    <vaadin-text-field width-full :expand></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-label plain-text>
+      Descripcion: 
+    </vaadin-label>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-text-area width-full :expand></vaadin-text-area>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout :right>
+    <vaadin-button plain-text>
+      Cancelar 
+    </vaadin-button>
+    <vaadin-button plain-text>
+      Guardar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

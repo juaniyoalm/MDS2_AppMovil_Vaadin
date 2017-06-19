@@ -1,0 +1,94 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;mytheme&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-vertical-layout>
+   <vaadin-label width-full plain-text>
+     Modificar cliente 
+   </vaadin-label>
+   <vaadin-vertical-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       DNI/NIF 
+     </vaadin-label>
+     <vaadin-text-field readonly></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Nombre 
+     </vaadin-label>
+     <vaadin-text-field></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Apellido1 
+     </vaadin-label>
+     <vaadin-text-field></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Apellido2 
+     </vaadin-label>
+     <vaadin-text-field></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Domicilio 
+     </vaadin-label>
+     <vaadin-text-field></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       email 
+     </vaadin-label>
+     <vaadin-text-field></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       IBAN 
+     </vaadin-label>
+     <vaadin-text-field width="50px" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" :right></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Servicio 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="java.lang.String" :right>
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
+     <vaadin-horizontal-layout :right>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7fa" plain-text></vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e801" plain-text></vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Terminal 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="java.lang.String">
+      <option item="Option1">Option 1</option>
+      <option item="Option2">Option 2</option>
+      <option item="Option3">Option 3</option>
+     </vaadin-combo-box>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout height="37px" :right>
+     <vaadin-button plain-text :right>
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button plain-text :right>
+       Aceptar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

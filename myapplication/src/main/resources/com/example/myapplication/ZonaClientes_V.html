@@ -1,0 +1,26 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.0.2">
+ </head>
+ <body>
+  <vaadin-css-layout>
+   <vaadin-vertical-layout size-auto _id="nuevoClienteLayout">
+    <vaadin-horizontal-layout>
+     <vaadin-button icon="fonticon://Vaadin-Icons/e805" style-name="borderless icon-align-right icon-only" plain-text _id="botonBuscarCliente"></vaadin-button>
+     <vaadin-text-field style-name="no-margin spinner v-window-top-toolbar" _id="campoBuscarCliente"></vaadin-text-field>
+     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+     <vaadin-button plain-text _id="nuevoCLiente">
+       Nuevo Cliente 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout size-auto>
+     <vaadin-grid data-item-type="diagrama_bd.base_de_datos.Cliente" _id="tablaDeClientes"></vaadin-grid>
+    </vaadin-vertical-layout>
+   </vaadin-vertical-layout>
+  </vaadin-css-layout>
+ </body>
+</html>

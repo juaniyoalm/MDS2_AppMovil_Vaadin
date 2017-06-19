@@ -1,0 +1,93 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.0.2">
+ </head>
+ <body>
+  <vaadin-vertical-layout width="650px">
+   <vaadin-label width-full plain-text>
+     Modificar cliente 
+   </vaadin-label>
+   <vaadin-vertical-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       DNI/NIF 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteDNI"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Nombre 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteNombre"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Apellido1 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteApellido1"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Apellido2 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteApellido2"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Domicilio 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteDomicilio"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Email 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClienteEmail"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Password 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClientePassword1"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Repite password 
+     </vaadin-label>
+     <vaadin-text-field _id="nuevoClientePassword2"></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       IBAN 
+     </vaadin-label>
+     <vaadin-text-field width="50px" _id="nuevoClienteIBAN1" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" _id="nuevoClienteIBAN2" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" _id="nuevoClienteIBAN3" :right></vaadin-text-field>
+     <vaadin-text-field width="50px" _id="nuevoClienteIBAN4" :right></vaadin-text-field>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout width-full>
+     <vaadin-label plain-text>
+       Servicio 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="java.lang.String" _id="listaServiciosCrearCliente" :right>
+     </vaadin-combo-box>
+     <vaadin-horizontal-layout :right>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e7fa" plain-text></vaadin-button>
+      <vaadin-button icon="fonticon://Vaadin-Icons/e801" plain-text></vaadin-button>
+     </vaadin-horizontal-layout>
+    </vaadin-horizontal-layout>
+    <vaadin-horizontal-layout height="37px" :right>
+     <vaadin-button plain-text :right>
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="guardarClienteEnBD" :right>
+       Aceptar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>

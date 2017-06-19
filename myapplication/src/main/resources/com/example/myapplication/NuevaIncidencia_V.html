@@ -1,0 +1,39 @@
+<!doctype html>
+<html>
+ <head>
+  <meta charset="UTF-8">
+  <meta name="design-properties" content="{&quot;RULERS_VISIBLE&quot;:true,&quot;GUIDELINES_VISIBLE&quot;:false,&quot;SNAP_TO_OBJECTS&quot;:true,&quot;SNAP_TO_GRID&quot;:true,&quot;SNAPPING_DISTANCE&quot;:10,&quot;JAVA_SOURCES_ROOT&quot;:&quot;src/main/java&quot;,&quot;THEME&quot;:&quot;valo&quot;}">
+  <meta name="vaadin-version" content="8.0.0">
+ </head>
+ <body>
+  <vaadin-vertical-layout size-full>
+   <vaadin-label width-full plain-text>
+     Nueva Incidencia 
+   </vaadin-label>
+   <vaadin-vertical-layout size-full :expand>
+    <vaadin-horizontal-layout>
+     <vaadin-label plain-text>
+       Tipo 
+     </vaadin-label>
+     <vaadin-combo-box data-item-type="diagrama_bd.base_de_datos.TipoIncidencia" _id="comboNuevaIncidencia">
+     </vaadin-combo-box>
+    </vaadin-horizontal-layout>
+    <vaadin-vertical-layout height="306px" :expand>
+     <vaadin-label plain-text>
+       Descripcion 
+     </vaadin-label>
+     <vaadin-text-area width="312px" height="159px" _id="textNuevaIncidencia"></vaadin-text-area>
+    </vaadin-vertical-layout>
+    <vaadin-horizontal-layout width="45.68%" height="0px">
+     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+     <vaadin-button plain-text _id="cancelarIncidencia" :right>
+       Cancelar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="btnGuardarIncidencia" :right>
+       Guardar 
+     </vaadin-button>
+    </vaadin-horizontal-layout>
+   </vaadin-vertical-layout>
+  </vaadin-vertical-layout>
+ </body>
+</html>
