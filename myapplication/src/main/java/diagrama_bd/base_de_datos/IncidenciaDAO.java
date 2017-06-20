@@ -327,12 +327,12 @@ public class IncidenciaDAO {
 				incidencia.getDe_tipo().clasifica_a.remove(incidencia);
 			}
 			
-			if (incidencia.getReclamada_por() != null) {
-				incidencia.getReclamada_por().reclama.remove(incidencia);
-			}
-			
 			if (incidencia.getTramitada_por() != null) {
 				incidencia.getTramitada_por().tramita.remove(incidencia);
+			}
+			
+			if (incidencia.getReclamada_por() != null) {
+				incidencia.getReclamada_por().reclama.remove(incidencia);
 			}
 			
 			return delete(incidencia);
@@ -349,12 +349,12 @@ public class IncidenciaDAO {
 				incidencia.getDe_tipo().clasifica_a.remove(incidencia);
 			}
 			
-			if (incidencia.getReclamada_por() != null) {
-				incidencia.getReclamada_por().reclama.remove(incidencia);
-			}
-			
 			if (incidencia.getTramitada_por() != null) {
 				incidencia.getTramitada_por().tramita.remove(incidencia);
+			}
+			
+			if (incidencia.getReclamada_por() != null) {
+				incidencia.getReclamada_por().reclama.remove(incidencia);
 			}
 			
 			try {

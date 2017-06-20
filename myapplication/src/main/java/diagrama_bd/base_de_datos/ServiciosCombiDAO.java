@@ -331,13 +331,13 @@ public class ServiciosCombiDAO {
 				serviciosCombi.getOfreceTV().es_parte.remove(serviciosCombi);
 			}
 			
-			if (serviciosCombi.getGenera() != null) {
-				serviciosCombi.getGenera().corresponde_a.remove(serviciosCombi);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = serviciosCombi.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(serviciosCombi);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = serviciosCombi.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			return delete(serviciosCombi);
 		}
@@ -357,13 +357,13 @@ public class ServiciosCombiDAO {
 				serviciosCombi.getOfreceTV().es_parte.remove(serviciosCombi);
 			}
 			
-			if (serviciosCombi.getGenera() != null) {
-				serviciosCombi.getGenera().corresponde_a.remove(serviciosCombi);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = serviciosCombi.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(serviciosCombi);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = serviciosCombi.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			try {
 				session.delete(serviciosCombi);

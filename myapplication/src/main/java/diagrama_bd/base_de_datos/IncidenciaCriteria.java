@@ -22,10 +22,10 @@ public class IncidenciaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression nIncidencia;
 	public final IntegerExpression de_tipoId;
 	public final AssociationExpression de_tipo;
-	public final IntegerExpression reclamada_porId;
-	public final AssociationExpression reclamada_por;
 	public final IntegerExpression tramitada_porId;
 	public final AssociationExpression tramitada_por;
+	public final IntegerExpression reclamada_porId;
+	public final AssociationExpression reclamada_por;
 	public final StringExpression detalleIncidencia;
 	public final StringExpression telefono;
 	public final StringExpression DNI;
@@ -36,10 +36,10 @@ public class IncidenciaCriteria extends AbstractORMCriteria {
 		nIncidencia = new IntegerExpression("nIncidencia", this);
 		de_tipoId = new IntegerExpression("de_tipo.nTipoIncidencia", this);
 		de_tipo = new AssociationExpression("de_tipo", this);
-		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this);
-		reclamada_por = new AssociationExpression("reclamada_por", this);
 		tramitada_porId = new IntegerExpression("tramitada_por.nComercial", this);
 		tramitada_por = new AssociationExpression("tramitada_por", this);
+		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this);
+		reclamada_por = new AssociationExpression("reclamada_por", this);
 		detalleIncidencia = new StringExpression("detalleIncidencia", this);
 		telefono = new StringExpression("telefono", this);
 		DNI = new StringExpression("DNI", this);
@@ -58,12 +58,12 @@ public class IncidenciaCriteria extends AbstractORMCriteria {
 		return new TipoIncidenciaCriteria(createCriteria("de_tipo"));
 	}
 	
-	public ClienteCriteria createReclamada_porCriteria() {
-		return new ClienteCriteria(createCriteria("reclamada_por"));
-	}
-	
 	public ComercialCriteria createTramitada_porCriteria() {
 		return new ComercialCriteria(createCriteria("tramitada_por"));
+	}
+	
+	public ClienteCriteria createReclamada_porCriteria() {
+		return new ClienteCriteria(createCriteria("reclamada_por"));
 	}
 	
 	public Incidencia uniqueIncidencia() {

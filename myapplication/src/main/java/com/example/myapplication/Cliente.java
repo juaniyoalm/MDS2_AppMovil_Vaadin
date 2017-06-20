@@ -21,6 +21,8 @@ public class Cliente extends ZonaComun implements View{
 		cl = c;
 		mc = new MisContratos(cl);
 		mi = new MisIncidencias(cl);
+		md = new MisDatos(cl);
+		mf = new MisFacturas(cl);
 		inicializar();
 	}
 	

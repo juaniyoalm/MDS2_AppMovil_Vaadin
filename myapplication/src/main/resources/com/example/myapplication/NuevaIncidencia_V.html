@@ -10,22 +10,20 @@
    <vaadin-label width-full plain-text>
      Nueva Incidencia 
    </vaadin-label>
-   <vaadin-vertical-layout size-full :expand>
+   <vaadin-vertical-layout size-auto :expand>
     <vaadin-horizontal-layout>
      <vaadin-label plain-text>
        Tipo 
      </vaadin-label>
-     <vaadin-combo-box data-item-type="diagrama_bd.base_de_datos.TipoIncidencia" _id="comboNuevaIncidencia">
-     </vaadin-combo-box>
+     <vaadin-combo-box data-item-type="diagrama_bd.base_de_datos.TipoIncidencia" _id="comboNuevaIncidencia"></vaadin-combo-box>
     </vaadin-horizontal-layout>
-    <vaadin-vertical-layout height="306px" :expand>
+    <vaadin-vertical-layout size-auto :expand>
      <vaadin-label plain-text>
        Descripcion 
      </vaadin-label>
      <vaadin-text-area width="312px" height="159px" _id="textNuevaIncidencia"></vaadin-text-area>
     </vaadin-vertical-layout>
-    <vaadin-horizontal-layout width="45.68%" height="0px">
-     <vaadin-vertical-layout size-auto></vaadin-vertical-layout>
+    <vaadin-horizontal-layout>
      <vaadin-button plain-text _id="cancelarIncidencia" :right>
        Cancelar 
      </vaadin-button>

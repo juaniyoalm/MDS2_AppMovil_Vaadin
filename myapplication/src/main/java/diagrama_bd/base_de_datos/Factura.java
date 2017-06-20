@@ -22,18 +22,20 @@ public class Factura implements Serializable {
 	public Factura() {
 	}
 	
-	private java.util.Set this_getSet (int key) {
+	private void this_setOwner(Object owner, int key) {
 		if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_FACTURA_CORRESPONDE_A) {
-			return ORM_corresponde_a;
+			this.corresponde_a = (diagrama_bd.base_de_datos.Servicio) owner;
 		}
 		
-		return null;
+		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_FACTURA_CLIENTE) {
+			this.cliente = (diagrama_bd.base_de_datos.Cliente) owner;
+		}
 	}
 	
 	@Transient	
 	org.orm.util.ORMAdapter _ormAdapter = new org.orm.util.AbstractORMAdapter() {
-		public java.util.Set getSet(int key) {
-			return this_getSet(key);
+		public void setOwner(Object owner, int key) {
+			this_setOwner(owner, key);
 		}
 		
 	};
@@ -44,17 +46,24 @@ public class Factura implements Serializable {
 	@org.hibernate.annotations.GenericGenerator(name="DIAGRAMA_BD_BASE_DE_DATOS_FACTURA_NFACTURA_GENERATOR", strategy="native")	
 	private int nFactura;
 	
+	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Cliente.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="ClienteNCliente", referencedColumnName="NCliente", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private diagrama_bd.base_de_datos.Cliente cliente;
+	
+	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Servicio.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="ServicioNServicio", referencedColumnName="NServicio", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private diagrama_bd.base_de_datos.Servicio corresponde_a;
+	
 	@Column(name="FechaEmision", nullable=true)	
 	@Temporal(TemporalType.DATE)	
 	private java.util.Date fechaEmision;
 	
 	@Column(name="Importe", nullable=true)	
 	private Float importe;
-	
-	@OneToMany(mappedBy="genera", targetEntity=diagrama_bd.base_de_datos.Servicio.class)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
-	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
-	private java.util.Set ORM_corresponde_a = new java.util.HashSet();
 	
 	private void setnFactura(int value) {
 		this.nFactura = value;
@@ -88,16 +97,53 @@ public class Factura implements Serializable {
 		return importe;
 	}
 	
-	private void setORM_Corresponde_a(java.util.Set value) {
-		this.ORM_corresponde_a = value;
+	public void setCorresponde_a(diagrama_bd.base_de_datos.Servicio value) {
+		if (corresponde_a != null) {
+			corresponde_a.genera.remove(this);
+		}
+		if (value != null) {
+			value.genera.add(this);
+		}
 	}
 	
-	private java.util.Set getORM_Corresponde_a() {
-		return ORM_corresponde_a;
+	public diagrama_bd.base_de_datos.Servicio getCorresponde_a() {
+		return corresponde_a;
 	}
 	
-	@Transient	
-	public final diagrama_bd.base_de_datos.ServicioSetCollection corresponde_a = new diagrama_bd.base_de_datos.ServicioSetCollection(this, _ormAdapter, diagrama_bd.base_de_datos.ORMConstants.KEY_FACTURA_CORRESPONDE_A, diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_GENERA, diagrama_bd.base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Corresponde_a(diagrama_bd.base_de_datos.Servicio value) {
+		this.corresponde_a = value;
+	}
+	
+	private diagrama_bd.base_de_datos.Servicio getORM_Corresponde_a() {
+		return corresponde_a;
+	}
+	
+	public void setCliente(diagrama_bd.base_de_datos.Cliente value) {
+		if (cliente != null) {
+			cliente.factura.remove(this);
+		}
+		if (value != null) {
+			value.factura.add(this);
+		}
+	}
+	
+	public diagrama_bd.base_de_datos.Cliente getCliente() {
+		return cliente;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Cliente(diagrama_bd.base_de_datos.Cliente value) {
+		this.cliente = value;
+	}
+	
+	private diagrama_bd.base_de_datos.Cliente getORM_Cliente() {
+		return cliente;
+	}
 	
 	public String toString() {
 		return String.valueOf(getnFactura());

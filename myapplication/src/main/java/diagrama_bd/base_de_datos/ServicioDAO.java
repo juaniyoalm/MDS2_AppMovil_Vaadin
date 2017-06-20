@@ -335,13 +335,13 @@ public class ServicioDAO {
 		}
 		
 		try {
-			if (servicio.getGenera() != null) {
-				servicio.getGenera().corresponde_a.remove(servicio);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = servicio.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(servicio);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = servicio.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			return delete(servicio);
 		}
@@ -365,13 +365,13 @@ public class ServicioDAO {
 		}
 		
 		try {
-			if (servicio.getGenera() != null) {
-				servicio.getGenera().corresponde_a.remove(servicio);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = servicio.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(servicio);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = servicio.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			try {
 				session.delete(servicio);

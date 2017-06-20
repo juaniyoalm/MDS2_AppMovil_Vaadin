@@ -327,13 +327,13 @@ public class ServiciosFFMDAO {
 			for(int i = 0; i < lEs_partes.length; i++) {
 				lEs_partes[i].ofreceFFM.remove(serviciosFFM);
 			}
-			if (serviciosFFM.getGenera() != null) {
-				serviciosFFM.getGenera().corresponde_a.remove(serviciosFFM);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = serviciosFFM.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(serviciosFFM);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = serviciosFFM.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			return delete(serviciosFFM);
 		}
@@ -349,13 +349,13 @@ public class ServiciosFFMDAO {
 			for(int i = 0; i < lEs_partes.length; i++) {
 				lEs_partes[i].ofreceFFM.remove(serviciosFFM);
 			}
-			if (serviciosFFM.getGenera() != null) {
-				serviciosFFM.getGenera().corresponde_a.remove(serviciosFFM);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = serviciosFFM.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(serviciosFFM);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = serviciosFFM.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			try {
 				session.delete(serviciosFFM);

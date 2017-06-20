@@ -53,7 +53,7 @@ public class MisIncidencias extends MisIncidencias_V {
 			pv.setPopupVisible(true);
 		})).setCaption("Ver Incidencia");
 		tableMisIncidencias.setItems(misIncidencias);	
-		layoutMisIncidencias.addComponent(tableMisIncidencias, "left: 25%; top:10%; z-index: 0;");
+		layoutMisIncidencias.addComponent(tableMisIncidencias, "left:10%; top:10%; z-index: 0;");
 		
 		btnNuevaIncidencia.addClickListener(ClickEvent -> {
 			NuevaIncidencia nueva = new NuevaIncidencia(c);

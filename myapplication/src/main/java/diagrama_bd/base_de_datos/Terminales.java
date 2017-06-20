@@ -48,7 +48,7 @@ public class Terminales implements Serializable {
 	
 	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Cliente.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="ClienteNCliente", referencedColumnName="NCliente", nullable=false) })	
+	@JoinColumns({ @JoinColumn(name="ClienteNCliente", referencedColumnName="NCliente") })	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private diagrama_bd.base_de_datos.Cliente cliente;
 	

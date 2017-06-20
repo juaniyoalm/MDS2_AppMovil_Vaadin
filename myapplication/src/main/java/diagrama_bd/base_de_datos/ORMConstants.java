@@ -18,11 +18,15 @@ public interface ORMConstants extends org.orm.util.ORMBaseConstants {
 	
 	final int KEY_CLIENTE_ABONADO_A = 1056250793;
 	
+	final int KEY_CLIENTE_FACTURA = 551064083;
+	
 	final int KEY_CLIENTE_RECLAMA = -1569534732;
 	
 	final int KEY_CLIENTE_TERMINALES = -1898325073;
 	
 	final int KEY_COMERCIAL_TRAMITA = -182323508;
+	
+	final int KEY_FACTURA_CLIENTE = -1556728813;
 	
 	final int KEY_FACTURA_CORRESPONDE_A = -1175319631;
 	

@@ -273,10 +273,10 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="ClienteNCliente">
+    <Column name="ComercialNComercial">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Comercial.NComercial</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
       <Nullable>true</Nullable>
@@ -285,13 +285,13 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
-    <Column name="ComercialNComercial">
+    <Column name="ClienteNCliente">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Diagrama_BD.Base de datos.Comercial.NComercial</ReferencedColumn>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>true</Nullable>
+      <Nullable>false</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -411,6 +411,30 @@
       <Index>false</Index>
       <UserTypes/>
     </Column>
+    <Column name="ClienteNCliente">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ServicioNServicio">
+      <PrimaryKey>false</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Servicio.NServicio</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>native</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
     <Column name="FechaEmision">
       <PrimaryKey>false</PrimaryKey>
       <ForeignKey>false</ForeignKey>
@@ -476,18 +500,6 @@
       <ReferencedColumn>Diagrama_BD.Base de datos.Servicio.NServicio</ReferencedColumn>
       <Type>27</Type>
       <Length>255</Length>
-      <Nullable>true</Nullable>
-      <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="FacturaNFactura">
-      <PrimaryKey>false</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Diagrama_BD.Base de datos.Factura.NFactura</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
@@ -612,7 +624,7 @@
       <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
       <Type>9</Type>
       <Length>10</Length>
-      <Nullable>false</Nullable>
+      <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
@@ -661,32 +673,6 @@
       <Length>255</Length>
       <Nullable>true</Nullable>
       <IDGenerator>native</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-  </Entity>
-  <Entity name="Servicio_Cliente" Unlogged="false" PKClustered="0">
-    <Column name="ServicioNServicio">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Diagrama_BD.Base de datos.Servicio.NServicio</ReferencedColumn>
-      <Type>27</Type>
-      <Length>255</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
-      <Unique>false</Unique>
-      <Index>false</Index>
-      <UserTypes/>
-    </Column>
-    <Column name="ClienteNCliente">
-      <PrimaryKey>true</PrimaryKey>
-      <ForeignKey>true</ForeignKey>
-      <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
-      <Type>9</Type>
-      <Length>10</Length>
-      <Nullable>false</Nullable>
-      <IDGenerator>assigned</IDGenerator>
       <Unique>false</Unique>
       <Index>false</Index>
       <UserTypes/>
@@ -744,66 +730,32 @@
       <UserTypes/>
     </Column>
   </Entity>
-  <ForeignKey name="FKIncidencia528836">
-    <ReferenceTable>Incidencia</ReferenceTable>
-    <ReferencedTable>Comercial</ReferencedTable>
-    <Columns>
-      <Column>ComercialNComercial</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NComercial</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKIncidencia399591">
-    <ReferenceTable>Incidencia</ReferenceTable>
-    <ReferencedTable>Cliente</ReferencedTable>
-    <Columns>
-      <Column>ClienteNCliente</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NCliente</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKIncidencia398106">
-    <ReferenceTable>Incidencia</ReferenceTable>
-    <ReferencedTable>TipoIncidencia</ReferencedTable>
-    <Columns>
-      <Column>TipoIncidenciaNTipoIncidencia</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NTipoIncidencia</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKServicio_C150098">
-    <ReferenceTable>Servicio_Cliente</ReferenceTable>
-    <ReferencedTable>Servicio</ReferencedTable>
-    <Columns>
-      <Column>ServicioNServicio</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NServicio</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKServicio_C959465">
-    <ReferenceTable>Servicio_Cliente</ReferenceTable>
-    <ReferencedTable>Cliente</ReferencedTable>
-    <Columns>
-      <Column>ClienteNCliente</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NCliente</Column>
-    </RefColumns>
-  </ForeignKey>
-  <ForeignKey name="FKServicio886211">
-    <ReferenceTable>Servicio</ReferenceTable>
-    <ReferencedTable>Factura</ReferencedTable>
-    <Columns>
-      <Column>FacturaNFactura</Column>
-    </Columns>
-    <RefColumns>
-      <Column>NFactura</Column>
-    </RefColumns>
-  </ForeignKey>
+  <Entity name="Servicio_Cliente" Unlogged="false" PKClustered="0">
+    <Column name="ServicioNServicio">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Servicio.NServicio</ReferencedColumn>
+      <Type>27</Type>
+      <Length>255</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+    <Column name="ClienteNCliente">
+      <PrimaryKey>true</PrimaryKey>
+      <ForeignKey>true</ForeignKey>
+      <ReferencedColumn>Diagrama_BD.Base de datos.Cliente.NCliente</ReferencedColumn>
+      <Type>9</Type>
+      <Length>10</Length>
+      <Nullable>false</Nullable>
+      <IDGenerator>assigned</IDGenerator>
+      <Unique>false</Unique>
+      <Index>false</Index>
+      <UserTypes/>
+    </Column>
+  </Entity>
   <ForeignKey name="FKServicio_S461869">
     <ReferenceTable>Servicio_Servicio</ReferenceTable>
     <ReferencedTable>Servicio</ReferencedTable>
@@ -866,6 +818,76 @@
   </ForeignKey>
   <ForeignKey name="FKTerminales618512">
     <ReferenceTable>Terminales</ReferenceTable>
+    <ReferencedTable>Cliente</ReferencedTable>
+    <Columns>
+      <Column>ClienteNCliente</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NCliente</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKFactura356237">
+    <ReferenceTable>Factura</ReferenceTable>
+    <ReferencedTable>Servicio</ReferencedTable>
+    <Columns>
+      <Column>ServicioNServicio</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NServicio</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKServicio_C150098">
+    <ReferenceTable>Servicio_Cliente</ReferenceTable>
+    <ReferencedTable>Servicio</ReferencedTable>
+    <Columns>
+      <Column>ServicioNServicio</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NServicio</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKServicio_C959465">
+    <ReferenceTable>Servicio_Cliente</ReferenceTable>
+    <ReferencedTable>Cliente</ReferencedTable>
+    <Columns>
+      <Column>ClienteNCliente</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NCliente</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKIncidencia399591">
+    <ReferenceTable>Incidencia</ReferenceTable>
+    <ReferencedTable>Cliente</ReferencedTable>
+    <Columns>
+      <Column>ClienteNCliente</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NCliente</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKIncidencia528836">
+    <ReferenceTable>Incidencia</ReferenceTable>
+    <ReferencedTable>Comercial</ReferencedTable>
+    <Columns>
+      <Column>ComercialNComercial</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NComercial</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKIncidencia398106">
+    <ReferenceTable>Incidencia</ReferenceTable>
+    <ReferencedTable>TipoIncidencia</ReferencedTable>
+    <Columns>
+      <Column>TipoIncidenciaNTipoIncidencia</Column>
+    </Columns>
+    <RefColumns>
+      <Column>NTipoIncidencia</Column>
+    </RefColumns>
+  </ForeignKey>
+  <ForeignKey name="FKFactura753326">
+    <ReferenceTable>Factura</ReferenceTable>
     <ReferencedTable>Cliente</ReferencedTable>
     <Columns>
       <Column>ClienteNCliente</Column>

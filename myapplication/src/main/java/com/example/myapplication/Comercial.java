@@ -26,6 +26,10 @@ public class Comercial extends ZonaComun implements View {
 		
 		zonaComercial();
 		
+		dp = new DatosPersonales(com);
+		zc = new ZonaClientes();
+		ic = new IncidenciasComercial();
+		
 		iconosF.addComponent(dp);
 
 		zmc.button1.addClickListener(ClickEvent -> {
@@ -46,7 +50,8 @@ public class Comercial extends ZonaComun implements View {
 			iconosF.addComponent(ic);
 		});
 		
-
+		ca.nombreLabel.setValue("");
+		ca.nombreLabel.setCaption("Bienvenido " + com.getNombre());
 		
 	}
 

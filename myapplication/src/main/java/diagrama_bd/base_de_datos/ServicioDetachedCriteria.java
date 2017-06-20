@@ -20,47 +20,44 @@ import org.orm.criteria.*;
 
 public class ServicioDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nServicio;
-	public final IntegerExpression generaId;
-	public final AssociationExpression genera;
 	public final IntegerExpression ID;
 	public final StringExpression nombre;
 	public final FloatExpression precio;
 	public final StringExpression caracteristicas;
 	public final BooleanExpression visible;
 	public final CollectionExpression utilizado_por;
+	public final CollectionExpression genera;
 	
 	public ServicioDetachedCriteria() {
 		super(diagrama_bd.base_de_datos.Servicio.class, diagrama_bd.base_de_datos.ServicioCriteria.class);
 		nServicio = new StringExpression("nServicio", this.getDetachedCriteria());
-		generaId = new IntegerExpression("genera.nFactura", this.getDetachedCriteria());
-		genera = new AssociationExpression("genera", this.getDetachedCriteria());
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		caracteristicas = new StringExpression("caracteristicas", this.getDetachedCriteria());
 		visible = new BooleanExpression("visible", this.getDetachedCriteria());
 		utilizado_por = new CollectionExpression("ORM_utilizado_por", this.getDetachedCriteria());
+		genera = new CollectionExpression("ORM_genera", this.getDetachedCriteria());
 	}
 	
 	public ServicioDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, diagrama_bd.base_de_datos.ServicioCriteria.class);
 		nServicio = new StringExpression("nServicio", this.getDetachedCriteria());
-		generaId = new IntegerExpression("genera.nFactura", this.getDetachedCriteria());
-		genera = new AssociationExpression("genera", this.getDetachedCriteria());
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		caracteristicas = new StringExpression("caracteristicas", this.getDetachedCriteria());
 		visible = new BooleanExpression("visible", this.getDetachedCriteria());
 		utilizado_por = new CollectionExpression("ORM_utilizado_por", this.getDetachedCriteria());
-	}
-	
-	public diagrama_bd.base_de_datos.FacturaDetachedCriteria createGeneraCriteria() {
-		return new diagrama_bd.base_de_datos.FacturaDetachedCriteria(createCriteria("genera"));
+		genera = new CollectionExpression("ORM_genera", this.getDetachedCriteria());
 	}
 	
 	public diagrama_bd.base_de_datos.ClienteDetachedCriteria createUtilizado_porCriteria() {
 		return new diagrama_bd.base_de_datos.ClienteDetachedCriteria(createCriteria("ORM_utilizado_por"));
+	}
+	
+	public diagrama_bd.base_de_datos.FacturaDetachedCriteria createGeneraCriteria() {
+		return new diagrama_bd.base_de_datos.FacturaDetachedCriteria(createCriteria("ORM_genera"));
 	}
 	
 	public Servicio uniqueServicio(PersistentSession session) {

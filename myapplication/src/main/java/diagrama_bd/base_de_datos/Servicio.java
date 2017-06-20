@@ -46,14 +46,11 @@ public class Servicio implements Serializable {
 		if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_UTILIZADO_POR) {
 			return ORM_utilizado_por;
 		}
+		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_GENERA) {
+			return ORM_genera;
+		}
 		
 		return null;
-	}
-	
-	private void this_setOwner(Object owner, int key) {
-		if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_GENERA) {
-			this.genera = (diagrama_bd.base_de_datos.Factura) owner;
-		}
 	}
 	
 	@Transient	
@@ -62,21 +59,11 @@ public class Servicio implements Serializable {
 			return this_getSet(key);
 		}
 		
-		public void setOwner(Object owner, int key) {
-			this_setOwner(owner, key);
-		}
-		
 	};
 	
 	@Column(name="NServicio", nullable=false, length=255)	
 	@Id	
 	private String nServicio;
-	
-	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Factura.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="FacturaNFactura", referencedColumnName="NFactura") })	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private diagrama_bd.base_de_datos.Factura genera;
 	
 	@Column(name="ID", nullable=false, length=10)	
 	private int ID;
@@ -97,6 +84,11 @@ public class Servicio implements Serializable {
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_utilizado_por = new java.util.HashSet();
+	
+	@OneToMany(mappedBy="corresponde_a", targetEntity=diagrama_bd.base_de_datos.Factura.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_genera = new java.util.HashSet();
 	
 	public void setID(int value) {
 		this.ID = value;
@@ -169,29 +161,16 @@ public class Servicio implements Serializable {
 	@Transient	
 	public final diagrama_bd.base_de_datos.ClienteSetCollection utilizado_por = new diagrama_bd.base_de_datos.ClienteSetCollection(this, _ormAdapter, diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_UTILIZADO_POR, diagrama_bd.base_de_datos.ORMConstants.KEY_CLIENTE_ABONADO_A, diagrama_bd.base_de_datos.ORMConstants.KEY_MUL_MANY_TO_MANY);
 	
-	public void setGenera(diagrama_bd.base_de_datos.Factura value) {
-		if (genera != null) {
-			genera.corresponde_a.remove(this);
-		}
-		if (value != null) {
-			value.corresponde_a.add(this);
-		}
+	private void setORM_Genera(java.util.Set value) {
+		this.ORM_genera = value;
 	}
 	
-	public diagrama_bd.base_de_datos.Factura getGenera() {
-		return genera;
+	private java.util.Set getORM_Genera() {
+		return ORM_genera;
 	}
 	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Genera(diagrama_bd.base_de_datos.Factura value) {
-		this.genera = value;
-	}
-	
-	private diagrama_bd.base_de_datos.Factura getORM_Genera() {
-		return genera;
-	}
+	@Transient	
+	public final diagrama_bd.base_de_datos.FacturaSetCollection genera = new diagrama_bd.base_de_datos.FacturaSetCollection(this, _ormAdapter, diagrama_bd.base_de_datos.ORMConstants.KEY_SERVICIO_GENERA, diagrama_bd.base_de_datos.ORMConstants.KEY_FACTURA_CORRESPONDE_A, diagrama_bd.base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getnServicio());

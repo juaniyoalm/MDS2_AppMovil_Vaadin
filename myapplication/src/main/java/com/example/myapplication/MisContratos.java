@@ -4,10 +4,16 @@ import java.util.ArrayList;
 
 import org.orm.PersistentException;
 
+import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.PopupView;
+import com.vaadin.ui.Window;
 
 import diagrama_bd.base_de_datos.Cliente;
+import diagrama_bd.base_de_datos.Incidencia;
+import diagrama_bd.base_de_datos.IncidenciaDAO;
 import diagrama_bd.base_de_datos.Servicio;
+import diagrama_bd.base_de_datos.TipoIncidenciaDAO;
 import diagrama_bd.base_de_datos.Diagrama_BD.ICliente;
 
 public class MisContratos extends MisContratos_V {
@@ -32,17 +38,23 @@ public class MisContratos extends MisContratos_V {
 			e.printStackTrace();
 		}
 		
-		System.out.println(serv.size());
+		btnModificarContrato.setEnabled(false);
+		btnSolicitarBaja.setEnabled(false);
+		labelContrato.setValue("");
+		
 		boxContratos.setItems(cargarNombresServicios());
 		
 		btnMostrarContrato.addClickListener(ClickEvent -> {
 			String contrato = boxContratos.getValue();
-			labelContrato.setCaption(contrato);
+			labelContrato.setValue(contrato);
 			servElegido = descripcionServicio(contrato);
 			if (servElegido == null)
 				textContratos.setValue("No disponible.");
 			else
 				textContratos.setValue(servElegido.getCaracteristicas());
+			
+			btnModificarContrato.setEnabled(true);
+			btnSolicitarBaja.setEnabled(true);
 		});
 		
 		btnModificarContrato.addClickListener(ClickEvent -> {
@@ -50,6 +62,15 @@ public class MisContratos extends MisContratos_V {
 			
 		});
 		
+		btnSolicitarBaja.addClickListener(ClickEvent -> {
+				
+			try {
+				ICliente.BajaCliente(cliente);
+			} catch (PersistentException e) {
+				e.printStackTrace();
+			}			
+			
+		});
 	}
 	
 	public String[] cargarNombresServicios() {

@@ -335,6 +335,10 @@ public class ClienteDAO {
 			for(int i = 0; i < lTerminaless.length; i++) {
 				lTerminaless[i].setCliente(null);
 			}
+			diagrama_bd.base_de_datos.Factura[] lFacturas = cliente.factura.toArray();
+			for(int i = 0; i < lFacturas.length; i++) {
+				lFacturas[i].setCliente(null);
+			}
 			return delete(cliente);
 		}
 		catch(Exception e) {
@@ -356,6 +360,10 @@ public class ClienteDAO {
 			diagrama_bd.base_de_datos.Terminales[] lTerminaless = cliente.terminales.toArray();
 			for(int i = 0; i < lTerminaless.length; i++) {
 				lTerminaless[i].setCliente(null);
+			}
+			diagrama_bd.base_de_datos.Factura[] lFacturas = cliente.factura.toArray();
+			for(int i = 0; i < lFacturas.length; i++) {
+				lFacturas[i].setCliente(null);
 			}
 			try {
 				session.delete(cliente);

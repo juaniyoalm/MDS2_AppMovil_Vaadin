@@ -331,13 +331,13 @@ public class ServicioTVDAO {
 			for(int i = 0; i < lCompuesto_pors.length; i++) {
 				lCompuesto_pors[i].es_parte.remove(servicioTV);
 			}
-			if (servicioTV.getGenera() != null) {
-				servicioTV.getGenera().corresponde_a.remove(servicioTV);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = servicioTV.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(servicioTV);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = servicioTV.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			return delete(servicioTV);
 		}
@@ -357,13 +357,13 @@ public class ServicioTVDAO {
 			for(int i = 0; i < lCompuesto_pors.length; i++) {
 				lCompuesto_pors[i].es_parte.remove(servicioTV);
 			}
-			if (servicioTV.getGenera() != null) {
-				servicioTV.getGenera().corresponde_a.remove(servicioTV);
-			}
-			
 			diagrama_bd.base_de_datos.Cliente[] lUtilizado_pors = servicioTV.utilizado_por.toArray();
 			for(int i = 0; i < lUtilizado_pors.length; i++) {
 				lUtilizado_pors[i].abonado_a.remove(servicioTV);
+			}
+			diagrama_bd.base_de_datos.Factura[] lGeneras = servicioTV.genera.toArray();
+			for(int i = 0; i < lGeneras.length; i++) {
+				lGeneras[i].setCorresponde_a(null);
 			}
 			try {
 				session.delete(servicioTV);

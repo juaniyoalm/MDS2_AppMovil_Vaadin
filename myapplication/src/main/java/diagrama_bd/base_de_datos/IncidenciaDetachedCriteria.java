@@ -22,10 +22,10 @@ public class IncidenciaDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final IntegerExpression nIncidencia;
 	public final IntegerExpression de_tipoId;
 	public final AssociationExpression de_tipo;
-	public final IntegerExpression reclamada_porId;
-	public final AssociationExpression reclamada_por;
 	public final IntegerExpression tramitada_porId;
 	public final AssociationExpression tramitada_por;
+	public final IntegerExpression reclamada_porId;
+	public final AssociationExpression reclamada_por;
 	public final StringExpression detalleIncidencia;
 	public final StringExpression telefono;
 	public final StringExpression DNI;
@@ -36,10 +36,10 @@ public class IncidenciaDetachedCriteria extends AbstractORMDetachedCriteria {
 		nIncidencia = new IntegerExpression("nIncidencia", this.getDetachedCriteria());
 		de_tipoId = new IntegerExpression("de_tipo.nTipoIncidencia", this.getDetachedCriteria());
 		de_tipo = new AssociationExpression("de_tipo", this.getDetachedCriteria());
-		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this.getDetachedCriteria());
-		reclamada_por = new AssociationExpression("reclamada_por", this.getDetachedCriteria());
 		tramitada_porId = new IntegerExpression("tramitada_por.nComercial", this.getDetachedCriteria());
 		tramitada_por = new AssociationExpression("tramitada_por", this.getDetachedCriteria());
+		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this.getDetachedCriteria());
+		reclamada_por = new AssociationExpression("reclamada_por", this.getDetachedCriteria());
 		detalleIncidencia = new StringExpression("detalleIncidencia", this.getDetachedCriteria());
 		telefono = new StringExpression("telefono", this.getDetachedCriteria());
 		DNI = new StringExpression("DNI", this.getDetachedCriteria());
@@ -51,10 +51,10 @@ public class IncidenciaDetachedCriteria extends AbstractORMDetachedCriteria {
 		nIncidencia = new IntegerExpression("nIncidencia", this.getDetachedCriteria());
 		de_tipoId = new IntegerExpression("de_tipo.nTipoIncidencia", this.getDetachedCriteria());
 		de_tipo = new AssociationExpression("de_tipo", this.getDetachedCriteria());
-		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this.getDetachedCriteria());
-		reclamada_por = new AssociationExpression("reclamada_por", this.getDetachedCriteria());
 		tramitada_porId = new IntegerExpression("tramitada_por.nComercial", this.getDetachedCriteria());
 		tramitada_por = new AssociationExpression("tramitada_por", this.getDetachedCriteria());
+		reclamada_porId = new IntegerExpression("reclamada_por.nCliente", this.getDetachedCriteria());
+		reclamada_por = new AssociationExpression("reclamada_por", this.getDetachedCriteria());
 		detalleIncidencia = new StringExpression("detalleIncidencia", this.getDetachedCriteria());
 		telefono = new StringExpression("telefono", this.getDetachedCriteria());
 		DNI = new StringExpression("DNI", this.getDetachedCriteria());
@@ -65,12 +65,12 @@ public class IncidenciaDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new diagrama_bd.base_de_datos.TipoIncidenciaDetachedCriteria(createCriteria("de_tipo"));
 	}
 	
-	public diagrama_bd.base_de_datos.ClienteDetachedCriteria createReclamada_porCriteria() {
-		return new diagrama_bd.base_de_datos.ClienteDetachedCriteria(createCriteria("reclamada_por"));
-	}
-	
 	public diagrama_bd.base_de_datos.ComercialDetachedCriteria createTramitada_porCriteria() {
 		return new diagrama_bd.base_de_datos.ComercialDetachedCriteria(createCriteria("tramitada_por"));
+	}
+	
+	public diagrama_bd.base_de_datos.ClienteDetachedCriteria createReclamada_porCriteria() {
+		return new diagrama_bd.base_de_datos.ClienteDetachedCriteria(createCriteria("reclamada_por"));
 	}
 	
 	public Incidencia uniqueIncidencia(PersistentSession session) {

@@ -12,22 +12,22 @@
     <vaadin-tab-sheet responsive width="930px" height="472px" _id="menuMisDatos">
      <tab caption="Datos" selected>
       <vaadin-vertical-layout size-auto>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblNombre">
          Label 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblApellido1">
          Label 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblApellido2">
          Label 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblDNI">
          Label 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblOtro">
          Label 
        </vaadin-label>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblDomicilio">
          Label 
        </vaadin-label>
       </vaadin-vertical-layout>
@@ -38,46 +38,46 @@
         <vaadin-label plain-text>
           Nombre 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtNombre" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
         <vaadin-label plain-text>
-          Apellidos 
+          Apellido 1 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtApellido1" :right></vaadin-text-field>
+       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout width-full>
+        <vaadin-label plain-text>
+          Apellidos 2 
+        </vaadin-label>
+        <vaadin-text-field _id="txtApellido2" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
         <vaadin-label plain-text>
           DNI 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtDNI" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
         <vaadin-label plain-text>
           Usuario/Email 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtEmail" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
         <vaadin-label plain-text>
           Contraseña 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtPass" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full>
         <vaadin-label plain-text>
           Direccion 
         </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
-       </vaadin-horizontal-layout>
-       <vaadin-horizontal-layout width-full>
-        <vaadin-label plain-text>
-          Telefono 
-        </vaadin-label>
-        <vaadin-text-field :right></vaadin-text-field>
+        <vaadin-text-field _id="txtDireccion" :right></vaadin-text-field>
        </vaadin-horizontal-layout>
        <vaadin-horizontal-layout>
-        <vaadin-button plain-text>
+        <vaadin-button plain-text _id="btnGuardad">
           Guardar 
         </vaadin-button>
        </vaadin-horizontal-layout>

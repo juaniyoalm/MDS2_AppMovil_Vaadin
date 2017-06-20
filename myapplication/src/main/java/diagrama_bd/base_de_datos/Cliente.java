@@ -32,6 +32,9 @@ public class Cliente implements Serializable {
 		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_CLIENTE_TERMINALES) {
 			return ORM_terminales;
 		}
+		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_CLIENTE_FACTURA) {
+			return ORM_factura;
+		}
 		
 		return null;
 	}
@@ -89,6 +92,11 @@ public class Cliente implements Serializable {
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
 	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
 	private java.util.Set ORM_terminales = new java.util.HashSet();
+	
+	@OneToMany(mappedBy="cliente", targetEntity=diagrama_bd.base_de_datos.Factura.class)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.SAVE_UPDATE, org.hibernate.annotations.CascadeType.LOCK})	
+	@org.hibernate.annotations.LazyCollection(org.hibernate.annotations.LazyCollectionOption.TRUE)	
+	private java.util.Set ORM_factura = new java.util.HashSet();
 	
 	private void setnCliente(int value) {
 		this.nCliente = value;
@@ -198,6 +206,17 @@ public class Cliente implements Serializable {
 	
 	@Transient	
 	public final diagrama_bd.base_de_datos.TerminalesSetCollection terminales = new diagrama_bd.base_de_datos.TerminalesSetCollection(this, _ormAdapter, diagrama_bd.base_de_datos.ORMConstants.KEY_CLIENTE_TERMINALES, diagrama_bd.base_de_datos.ORMConstants.KEY_TERMINALES_CLIENTE, diagrama_bd.base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
+	
+	private void setORM_Factura(java.util.Set value) {
+		this.ORM_factura = value;
+	}
+	
+	private java.util.Set getORM_Factura() {
+		return ORM_factura;
+	}
+	
+	@Transient	
+	public final diagrama_bd.base_de_datos.FacturaSetCollection factura = new diagrama_bd.base_de_datos.FacturaSetCollection(this, _ormAdapter, diagrama_bd.base_de_datos.ORMConstants.KEY_CLIENTE_FACTURA, diagrama_bd.base_de_datos.ORMConstants.KEY_FACTURA_CLIENTE, diagrama_bd.base_de_datos.ORMConstants.KEY_MUL_ONE_TO_MANY);
 	
 	public String toString() {
 		return String.valueOf(getnCliente());

@@ -20,16 +20,22 @@ import org.orm.criteria.*;
 
 public class FacturaCriteria extends AbstractORMCriteria {
 	public final IntegerExpression nFactura;
+	public final IntegerExpression clienteId;
+	public final AssociationExpression cliente;
+	public final StringExpression corresponde_aId;
+	public final AssociationExpression corresponde_a;
 	public final DateExpression fechaEmision;
 	public final FloatExpression importe;
-	public final CollectionExpression corresponde_a;
 	
 	public FacturaCriteria(Criteria criteria) {
 		super(criteria);
 		nFactura = new IntegerExpression("nFactura", this);
+		clienteId = new IntegerExpression("cliente.nCliente", this);
+		cliente = new AssociationExpression("cliente", this);
+		corresponde_aId = new StringExpression("corresponde_a.nServicio", this);
+		corresponde_a = new AssociationExpression("corresponde_a", this);
 		fechaEmision = new DateExpression("fechaEmision", this);
 		importe = new FloatExpression("importe", this);
-		corresponde_a = new CollectionExpression("ORM_corresponde_a", this);
 	}
 	
 	public FacturaCriteria(PersistentSession session) {
@@ -40,8 +46,12 @@ public class FacturaCriteria extends AbstractORMCriteria {
 		this(diagrama_bd.base_de_datos.ProyectoCompletoIluminatiPersistentManager.instance().getSession());
 	}
 	
-	public diagrama_bd.base_de_datos.ServicioCriteria createCorresponde_aCriteria() {
-		return new diagrama_bd.base_de_datos.ServicioCriteria(createCriteria("ORM_corresponde_a"));
+	public ClienteCriteria createClienteCriteria() {
+		return new ClienteCriteria(createCriteria("cliente"));
+	}
+	
+	public ServicioCriteria createCorresponde_aCriteria() {
+		return new ServicioCriteria(createCriteria("corresponde_a"));
 	}
 	
 	public Factura uniqueFactura() {

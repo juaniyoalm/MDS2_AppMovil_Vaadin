@@ -26,8 +26,6 @@ public class CREARSERVICIOS_JUANIYO {
 		s.setCaracteristicas("Fibra simétrica de 300Mb");
 		
 		
-		
-		
 		try {
 			res = ServiciosFFMDAO.save(s);
 			t.commit();

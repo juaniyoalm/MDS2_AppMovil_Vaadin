@@ -323,10 +323,14 @@ public class FacturaDAO {
 	
 	public static boolean deleteAndDissociate(diagrama_bd.base_de_datos.Factura factura)throws PersistentException {
 		try {
-			diagrama_bd.base_de_datos.Servicio[] lCorresponde_as = factura.corresponde_a.toArray();
-			for(int i = 0; i < lCorresponde_as.length; i++) {
-				lCorresponde_as[i].setGenera(null);
+			if (factura.getCliente() != null) {
+				factura.getCliente().factura.remove(factura);
 			}
+			
+			if (factura.getCorresponde_a() != null) {
+				factura.getCorresponde_a().genera.remove(factura);
+			}
+			
 			return delete(factura);
 		}
 		catch(Exception e) {
@@ -337,10 +341,14 @@ public class FacturaDAO {
 	
 	public static boolean deleteAndDissociate(diagrama_bd.base_de_datos.Factura factura, org.orm.PersistentSession session)throws PersistentException {
 		try {
-			diagrama_bd.base_de_datos.Servicio[] lCorresponde_as = factura.corresponde_a.toArray();
-			for(int i = 0; i < lCorresponde_as.length; i++) {
-				lCorresponde_as[i].setGenera(null);
+			if (factura.getCliente() != null) {
+				factura.getCliente().factura.remove(factura);
 			}
+			
+			if (factura.getCorresponde_a() != null) {
+				factura.getCorresponde_a().genera.remove(factura);
+			}
+			
 			try {
 				session.delete(factura);
 				return true;

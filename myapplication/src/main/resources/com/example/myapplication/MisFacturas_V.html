@@ -12,23 +12,29 @@
     <vaadin-tab-sheet responsive width="930px" height="472px" _id="menuMisDatos">
      <tab caption="Última Factura" selected>
       <vaadin-vertical-layout size-auto>
-       <vaadin-label plain-text>
+       <vaadin-label plain-text _id="lblNfactura">
+         Desglose de tu última factura 
+       </vaadin-label>
+       <vaadin-label plain-text _id="lblServicio">
+         Desglose de tu última factura 
+       </vaadin-label>
+       <vaadin-label plain-text _id="lblFecha">
+         Desglose de tu última factura 
+       </vaadin-label>
+       <vaadin-label plain-text _id="lblImporte">
          Desglose de tu última factura 
        </vaadin-label>
       </vaadin-vertical-layout>
      </tab>
      <tab caption="Histórico">
-      <vaadin-vertical-layout width="410px">
+      <vaadin-vertical-layout width="695px" _id="layoutTableFacturas">
+       <vaadin-grid width="643px" data-item-type="diagrama_bd.base_de_datos.Factura" _id="tableFacturas"></vaadin-grid>
        <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
        <vaadin-horizontal-layout width-full></vaadin-horizontal-layout>
-       <vaadin-horizontal-layout>
-        <vaadin-button plain-text>
-          Guardar 
-        </vaadin-button>
-       </vaadin-horizontal-layout>
+       <vaadin-horizontal-layout></vaadin-horizontal-layout>
       </vaadin-vertical-layout>
      </tab>
      <tab caption="Detalle de Consumo">

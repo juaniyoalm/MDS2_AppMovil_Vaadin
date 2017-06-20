@@ -20,14 +20,13 @@ import org.orm.criteria.*;
 
 public class ServicioTVDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final StringExpression nServicio;
-	public final IntegerExpression generaId;
-	public final AssociationExpression genera;
 	public final IntegerExpression ID;
 	public final StringExpression nombre;
 	public final FloatExpression precio;
 	public final StringExpression caracteristicas;
 	public final BooleanExpression visible;
 	public final CollectionExpression utilizado_por;
+	public final CollectionExpression genera;
 	public final IntegerExpression nServicioTV;
 	public final CollectionExpression es_parte;
 	public final CollectionExpression compuesto_por;
@@ -35,14 +34,13 @@ public class ServicioTVDetachedCriteria extends AbstractORMDetachedCriteria {
 	public ServicioTVDetachedCriteria() {
 		super(diagrama_bd.base_de_datos.ServicioTV.class, diagrama_bd.base_de_datos.ServicioTVCriteria.class);
 		nServicio = new StringExpression("nServicio", this.getDetachedCriteria());
-		generaId = new IntegerExpression("genera.nFactura", this.getDetachedCriteria());
-		genera = new AssociationExpression("genera", this.getDetachedCriteria());
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		caracteristicas = new StringExpression("caracteristicas", this.getDetachedCriteria());
 		visible = new BooleanExpression("visible", this.getDetachedCriteria());
 		utilizado_por = new CollectionExpression("ORM_utilizado_por", this.getDetachedCriteria());
+		genera = new CollectionExpression("ORM_genera", this.getDetachedCriteria());
 		nServicioTV = new IntegerExpression("nServicioTV", this.getDetachedCriteria());
 		es_parte = new CollectionExpression("ORM_es_parte", this.getDetachedCriteria());
 		compuesto_por = new CollectionExpression("ORM_compuesto_por", this.getDetachedCriteria());
@@ -51,14 +49,13 @@ public class ServicioTVDetachedCriteria extends AbstractORMDetachedCriteria {
 	public ServicioTVDetachedCriteria(DetachedCriteria aDetachedCriteria) {
 		super(aDetachedCriteria, diagrama_bd.base_de_datos.ServicioTVCriteria.class);
 		nServicio = new StringExpression("nServicio", this.getDetachedCriteria());
-		generaId = new IntegerExpression("genera.nFactura", this.getDetachedCriteria());
-		genera = new AssociationExpression("genera", this.getDetachedCriteria());
 		ID = new IntegerExpression("ID", this.getDetachedCriteria());
 		nombre = new StringExpression("nombre", this.getDetachedCriteria());
 		precio = new FloatExpression("precio", this.getDetachedCriteria());
 		caracteristicas = new StringExpression("caracteristicas", this.getDetachedCriteria());
 		visible = new BooleanExpression("visible", this.getDetachedCriteria());
 		utilizado_por = new CollectionExpression("ORM_utilizado_por", this.getDetachedCriteria());
+		genera = new CollectionExpression("ORM_genera", this.getDetachedCriteria());
 		nServicioTV = new IntegerExpression("nServicioTV", this.getDetachedCriteria());
 		es_parte = new CollectionExpression("ORM_es_parte", this.getDetachedCriteria());
 		compuesto_por = new CollectionExpression("ORM_compuesto_por", this.getDetachedCriteria());
@@ -72,12 +69,12 @@ public class ServicioTVDetachedCriteria extends AbstractORMDetachedCriteria {
 		return new diagrama_bd.base_de_datos.CanalDetachedCriteria(createCriteria("ORM_compuesto_por"));
 	}
 	
-	public diagrama_bd.base_de_datos.FacturaDetachedCriteria createGeneraCriteria() {
-		return new diagrama_bd.base_de_datos.FacturaDetachedCriteria(createCriteria("genera"));
-	}
-	
 	public diagrama_bd.base_de_datos.ClienteDetachedCriteria createUtilizado_porCriteria() {
 		return new diagrama_bd.base_de_datos.ClienteDetachedCriteria(createCriteria("ORM_utilizado_por"));
+	}
+	
+	public diagrama_bd.base_de_datos.FacturaDetachedCriteria createGeneraCriteria() {
+		return new diagrama_bd.base_de_datos.FacturaDetachedCriteria(createCriteria("ORM_genera"));
 	}
 	
 	public ServicioTV uniqueServicioTV(PersistentSession session) {

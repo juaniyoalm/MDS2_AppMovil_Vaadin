@@ -27,12 +27,12 @@ public class Incidencia implements Serializable {
 			this.tramitada_por = (diagrama_bd.base_de_datos.Comercial) owner;
 		}
 		
-		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_INCIDENCIA_RECLAMADA_POR) {
-			this.reclamada_por = (diagrama_bd.base_de_datos.Cliente) owner;
-		}
-		
 		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_INCIDENCIA_DE_TIPO) {
 			this.de_tipo = (diagrama_bd.base_de_datos.TipoIncidencia) owner;
+		}
+		
+		else if (key == diagrama_bd.base_de_datos.ORMConstants.KEY_INCIDENCIA_RECLAMADA_POR) {
+			this.reclamada_por = (diagrama_bd.base_de_datos.Cliente) owner;
 		}
 	}
 	
@@ -56,17 +56,17 @@ public class Incidencia implements Serializable {
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private diagrama_bd.base_de_datos.TipoIncidencia de_tipo;
 	
-	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Cliente.class, fetch=FetchType.LAZY)	
-	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
-	@JoinColumns({ @JoinColumn(name="ClienteNCliente", referencedColumnName="NCliente") })	
-	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
-	private diagrama_bd.base_de_datos.Cliente reclamada_por;
-	
 	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Comercial.class, fetch=FetchType.LAZY)	
 	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
 	@JoinColumns({ @JoinColumn(name="ComercialNComercial", referencedColumnName="NComercial") })	
 	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
 	private diagrama_bd.base_de_datos.Comercial tramitada_por;
+	
+	@ManyToOne(targetEntity=diagrama_bd.base_de_datos.Cliente.class, fetch=FetchType.LAZY)	
+	@org.hibernate.annotations.Cascade({org.hibernate.annotations.CascadeType.LOCK})	
+	@JoinColumns({ @JoinColumn(name="ClienteNCliente", referencedColumnName="NCliente", nullable=false) })	
+	@org.hibernate.annotations.LazyToOne(value=org.hibernate.annotations.LazyToOneOption.NO_PROXY)	
+	private diagrama_bd.base_de_datos.Cliente reclamada_por;
 	
 	@Column(name="DetalleIncidencia", nullable=true, length=255)	
 	private String detalleIncidencia;
@@ -148,30 +148,6 @@ public class Incidencia implements Serializable {
 		return tramitada_por;
 	}
 	
-	public void setReclamada_por(diagrama_bd.base_de_datos.Cliente value) {
-		if (reclamada_por != null) {
-			reclamada_por.reclama.remove(this);
-		}
-		if (value != null) {
-			value.reclama.add(this);
-		}
-	}
-	
-	public diagrama_bd.base_de_datos.Cliente getReclamada_por() {
-		return reclamada_por;
-	}
-	
-	/**
-	 * This method is for internal use only.
-	 */
-	public void setORM_Reclamada_por(diagrama_bd.base_de_datos.Cliente value) {
-		this.reclamada_por = value;
-	}
-	
-	private diagrama_bd.base_de_datos.Cliente getORM_Reclamada_por() {
-		return reclamada_por;
-	}
-	
 	public void setDe_tipo(diagrama_bd.base_de_datos.TipoIncidencia value) {
 		if (de_tipo != null) {
 			de_tipo.clasifica_a.remove(this);
@@ -194,6 +170,30 @@ public class Incidencia implements Serializable {
 	
 	private diagrama_bd.base_de_datos.TipoIncidencia getORM_De_tipo() {
 		return de_tipo;
+	}
+	
+	public void setReclamada_por(diagrama_bd.base_de_datos.Cliente value) {
+		if (reclamada_por != null) {
+			reclamada_por.reclama.remove(this);
+		}
+		if (value != null) {
+			value.reclama.add(this);
+		}
+	}
+	
+	public diagrama_bd.base_de_datos.Cliente getReclamada_por() {
+		return reclamada_por;
+	}
+	
+	/**
+	 * This method is for internal use only.
+	 */
+	public void setORM_Reclamada_por(diagrama_bd.base_de_datos.Cliente value) {
+		this.reclamada_por = value;
+	}
+	
+	private diagrama_bd.base_de_datos.Cliente getORM_Reclamada_por() {
+		return reclamada_por;
 	}
 	
 	public String toString() {

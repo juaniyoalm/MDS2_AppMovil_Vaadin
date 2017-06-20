@@ -31,6 +31,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 	public final CollectionExpression abonado_a;
 	public final CollectionExpression reclama;
 	public final CollectionExpression terminales;
+	public final CollectionExpression factura;
 	
 	public ClienteDetachedCriteria() {
 		super(diagrama_bd.base_de_datos.Cliente.class, diagrama_bd.base_de_datos.ClienteCriteria.class);
@@ -46,6 +47,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		abonado_a = new CollectionExpression("ORM_abonado_a", this.getDetachedCriteria());
 		reclama = new CollectionExpression("ORM_reclama", this.getDetachedCriteria());
 		terminales = new CollectionExpression("ORM_terminales", this.getDetachedCriteria());
+		factura = new CollectionExpression("ORM_factura", this.getDetachedCriteria());
 	}
 	
 	public ClienteDetachedCriteria(DetachedCriteria aDetachedCriteria) {
@@ -62,6 +64,7 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 		abonado_a = new CollectionExpression("ORM_abonado_a", this.getDetachedCriteria());
 		reclama = new CollectionExpression("ORM_reclama", this.getDetachedCriteria());
 		terminales = new CollectionExpression("ORM_terminales", this.getDetachedCriteria());
+		factura = new CollectionExpression("ORM_factura", this.getDetachedCriteria());
 	}
 	
 	public diagrama_bd.base_de_datos.ServicioDetachedCriteria createAbonado_aCriteria() {
@@ -74,6 +77,10 @@ public class ClienteDetachedCriteria extends AbstractORMDetachedCriteria {
 	
 	public diagrama_bd.base_de_datos.TerminalesDetachedCriteria createTerminalesCriteria() {
 		return new diagrama_bd.base_de_datos.TerminalesDetachedCriteria(createCriteria("ORM_terminales"));
+	}
+	
+	public diagrama_bd.base_de_datos.FacturaDetachedCriteria createFacturaCriteria() {
+		return new diagrama_bd.base_de_datos.FacturaDetachedCriteria(createCriteria("ORM_factura"));
 	}
 	
 	public Cliente uniqueCliente(PersistentSession session) {

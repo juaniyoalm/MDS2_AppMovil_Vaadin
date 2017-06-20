@@ -31,6 +31,7 @@ public class ClienteCriteria extends AbstractORMCriteria {
 	public final CollectionExpression abonado_a;
 	public final CollectionExpression reclama;
 	public final CollectionExpression terminales;
+	public final CollectionExpression factura;
 	
 	public ClienteCriteria(Criteria criteria) {
 		super(criteria);
@@ -46,6 +47,7 @@ public class ClienteCriteria extends AbstractORMCriteria {
 		abonado_a = new CollectionExpression("ORM_abonado_a", this);
 		reclama = new CollectionExpression("ORM_reclama", this);
 		terminales = new CollectionExpression("ORM_terminales", this);
+		factura = new CollectionExpression("ORM_factura", this);
 	}
 	
 	public ClienteCriteria(PersistentSession session) {
@@ -66,6 +68,10 @@ public class ClienteCriteria extends AbstractORMCriteria {
 	
 	public diagrama_bd.base_de_datos.TerminalesCriteria createTerminalesCriteria() {
 		return new diagrama_bd.base_de_datos.TerminalesCriteria(createCriteria("ORM_terminales"));
+	}
+	
+	public diagrama_bd.base_de_datos.FacturaCriteria createFacturaCriteria() {
+		return new diagrama_bd.base_de_datos.FacturaCriteria(createCriteria("ORM_factura"));
 	}
 	
 	public Cliente uniqueCliente() {
