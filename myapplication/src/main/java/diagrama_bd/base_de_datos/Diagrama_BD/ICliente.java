@@ -25,10 +25,6 @@ import diagrama_bd.base_de_datos.Diagrama_BD.Base_de_datos.BD_Principal;
 
 public class ICliente {
 	
-	BD_Principal bd = new BD_Principal();
-	ServiciosFFM sFFM = new ServiciosFFM();
-	ServiciosCombi sCombi = new ServiciosCombi();
-	
 	public static ArrayList<Servicio> cargarServicios (Cliente cliente) throws PersistentException {
 		
 		ArrayList<Servicio> a = new ArrayList<Servicio>();

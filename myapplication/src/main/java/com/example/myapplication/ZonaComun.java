@@ -19,18 +19,6 @@ public class ZonaComun extends ZonaComun_V {
 
 	private void inicializar() {
 		
-//		// Find the application directory
-//		String basepath = VaadinService.getCurrent().getBaseDirectory().getAbsolutePath();
-//		
-//		System.out.println(basepath);
-//
-//		// Image as a file resource
-//		ThemeResource resource = new ThemeResource(basepath + "/images/fiber.png");
-//		FileResource resource2 = new FileResource(new File(basepath + "images/iconos.png"));
-//		
-//		
-//		imgFiber.setSource(resource);
-//		imgIcon.setSource(resource2);
 		
 		cssL.addComponent(zmc);
 		
@@ -38,15 +26,15 @@ public class ZonaComun extends ZonaComun_V {
 	
 	public void zonaAdmin() {
 		zmc.menuAdmin();
-		CabeceraLogueado cl = new CabeceraLogueado();
-		head_iluminati.addComponent(cl);
+		ca = new CabeceraLogueado();
+		head_iluminati.addComponent(ca);
 		viewTitle.setValue("Zona Administrador");
 	}
 	
 	public void zonaComercial() {
 		zmc.menuComercial();
-		CabeceraLogueado cl = new CabeceraLogueado();
-		head_iluminati.addComponent(cl);
+		ca = new CabeceraLogueado();
+		head_iluminati.addComponent(ca);
 		viewTitle.setValue("Zona Comercial");
 	}
 	

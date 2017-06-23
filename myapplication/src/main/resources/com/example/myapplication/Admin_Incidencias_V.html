@@ -8,19 +8,27 @@
  <body>
   <vaadin-css-layout height-full>
    <vaadin-vertical-layout spacing="false" margin="false">
-    <vaadin-horizontal-layout width="12px" height="0px" _id="menuInterno"></vaadin-horizontal-layout>
-    <vaadin-tab-sheet responsive width="930px" height="472px" _id="menuMisDatos">
+    <vaadin-horizontal-layout width="0px" height="0px" _id="menuInterno"></vaadin-horizontal-layout>
+    <vaadin-tab-sheet responsive width="1064px" height="547px" _id="menuMisDatos">
      <tab caption="Sin Asignar" selected>
-      <vaadin-vertical-layout width="594px"></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto _id="layoutSinAsignar">
+       <vaadin-absolute-layout size-auto _id="absoluteSin"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
      </tab>
      <tab caption="En Curso">
-      <vaadin-vertical-layout width="594px"></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto _id="layoutEnCurso">
+       <vaadin-absolute-layout size-auto _id="absoluteSin1"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
      </tab>
      <tab caption="Completadas">
-      <vaadin-vertical-layout width="594px"></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto _id="layoutCompletadas">
+       <vaadin-absolute-layout size-auto _id="absoluteSin2"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
      </tab>
      <tab caption="Consultar Incidencias">
-      <vaadin-vertical-layout width="594px"></vaadin-vertical-layout>
+      <vaadin-vertical-layout size-auto _id="layoutConsultar">
+       <vaadin-absolute-layout size-auto _id="absoluteSin3"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
      </tab>
     </vaadin-tab-sheet>
    </vaadin-vertical-layout>

@@ -9,29 +9,23 @@
   <vaadin-css-layout size-full>
    <vaadin-vertical-layout>
     <vaadin-horizontal-layout width-full>
-     <vaadin-text-field :center></vaadin-text-field>
-     <vaadin-label plain-text :right>
-       Llamadas 
-     </vaadin-label>
-     <vaadin-horizontal-layout :right>
-      <vaadin-label plain-text>
-        Nuevas incidencias(5) 
-      </vaadin-label>
-     </vaadin-horizontal-layout>
+     <vaadin-button plain-text _id="btnNuevaIncidencia">
+       Nueva Incidencia 
+     </vaadin-button>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout width-full>
-     <vaadin-vertical-layout :expand>
-      <vaadin-horizontal-layout :right>
-       <vaadin-button plain-text :right>
-         Limpiar completadas 
-       </vaadin-button>
-       <vaadin-button plain-text :right>
-         Nueva Incidencia 
-       </vaadin-button>
-      </vaadin-horizontal-layout>
-     </vaadin-vertical-layout>
-     <vaadin-vertical-layout :expand></vaadin-vertical-layout>
-    </vaadin-horizontal-layout>
+    <vaadin-tab-sheet responsive size-full _id="menuMisDatos">
+     <tab caption="General" selected>
+      <vaadin-vertical-layout size-auto _id="layoutGeneral">
+       <vaadin-absolute-layout size-auto _id="absoluteSin"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
+     </tab>
+     <tab caption="Llamadas">
+      <vaadin-vertical-layout size-auto _id="layoutLlamadas">
+       <vaadin-absolute-layout size-auto _id="absoluteSin1"></vaadin-absolute-layout>
+      </vaadin-vertical-layout>
+     </tab>
+    </vaadin-tab-sheet>
+    <vaadin-absolute-layout size-auto _id="absolute"></vaadin-absolute-layout>
    </vaadin-vertical-layout>
   </vaadin-css-layout>
  </body>

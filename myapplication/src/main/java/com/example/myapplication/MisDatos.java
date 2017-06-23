@@ -41,18 +41,11 @@ public class MisDatos extends MisDatos_V {
 		lblDomicilio.setValue(domicilio);
 		lblOtro.setValue(email);
 		
-//		txtNombre.setValue(nombre);
-//		txtNombre.setEnabled(false);
-//		txtApellido1.setValue(a1);
-//		txtApellido1.setEnabled(false);
-//		txtApellido2.setValue(a2);
-//		txtApellido2.setEnabled(false);
-//		txtDNI.setValue(DNI);
-//		txtDNI.setEnabled(false);
-//		txtEmail.setValue(email);
-//		txtDireccion.setValue(domicilio);
-//		txtDireccion.setEnabled(false);
-//		txtPass.setValue(pass);
+		txtNombre.setValue(nombre);
+		txtApellido1.setValue(a1);
+		txtApellido2.setValue(a2);
+		txtDNI.setValue(DNI);
+		txtDireccion.setValue(domicilio);
 		
 		btnGuardad.addClickListener(ClickEvent -> {
 			

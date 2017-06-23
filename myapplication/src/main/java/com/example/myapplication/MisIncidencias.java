@@ -10,11 +10,13 @@ import com.vaadin.ui.Button.ClickEvent;
 import com.vaadin.ui.Grid;
 import com.vaadin.ui.PopupView;
 import com.vaadin.ui.Grid.SelectionMode;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.renderers.ButtonRenderer;
 
 import diagrama_bd.base_de_datos.Cliente;
 import diagrama_bd.base_de_datos.Incidencia;
 import diagrama_bd.base_de_datos.IncidenciaDAO;
+import diagrama_bd.base_de_datos.TipoIncidenciaDAO;
 import diagrama_bd.base_de_datos.Diagrama_BD.ICliente;
 
 public class MisIncidencias extends MisIncidencias_V {
@@ -63,6 +65,25 @@ public class MisIncidencias extends MisIncidencias_V {
 			pv.setPopupVisible(true);
 		});
 			
+		
+		btnLlamada.addClickListener(ClickEvent -> {
+			Incidencia llamada = IncidenciaDAO.createIncidencia();
+			boolean res = false;
+			try {
+				llamada.setDe_tipo(TipoIncidenciaDAO.getTipoIncidenciaByORMID(4));
+				llamada.setDetalleIncidencia("Necesito una llamada");
+				llamada.setDNI(String.valueOf(c.getDNI()));
+				llamada.setReclamada_por(c);
+				ICliente.nuevaIncidencia(llamada);
+			} catch (PersistentException e) {
+				e.printStackTrace();
+			}
+			
+				actualizarTabla(llamada);
+				Notification.show("Le llamaremos lo antes posible");
+			
+			
+		});
 		
 	}
 	

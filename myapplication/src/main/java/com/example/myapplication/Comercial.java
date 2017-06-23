@@ -28,25 +28,28 @@ public class Comercial extends ZonaComun implements View {
 		
 		dp = new DatosPersonales(com);
 		zc = new ZonaClientes();
-		ic = new IncidenciasComercial();
+		ic = new IncidenciasComercial(com);
 		
 		iconosF.addComponent(dp);
 
 		zmc.button1.addClickListener(ClickEvent -> {
 			iconosF.removeComponent(zc);
 			iconosF.removeComponent(ic);
+			iconosF.removeComponent(dp);
 			iconosF.addComponent(dp);
 		});
 		
 		zmc.button2.addClickListener(ClickEvent -> {
 			iconosF.removeComponent(dp);
 			iconosF.removeComponent(ic);
+			iconosF.removeComponent(zc);
 			iconosF.addComponent(zc);
 		});
 		
 		zmc.button3.addClickListener(ClickEvent -> {
 			iconosF.removeComponent(dp);
 			iconosF.removeComponent(zc);
+			iconosF.removeComponent(ic);
 			iconosF.addComponent(ic);
 		});
 		

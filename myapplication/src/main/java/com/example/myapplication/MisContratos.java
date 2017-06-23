@@ -6,8 +6,10 @@ import org.orm.PersistentException;
 
 import com.vaadin.ui.AbsoluteLayout;
 import com.vaadin.ui.Button.ClickEvent;
+import com.vaadin.ui.Notification;
 import com.vaadin.ui.PopupView;
 import com.vaadin.ui.Window;
+import com.vaadin.ui.declarative.ShouldWriteDataDelegate;
 
 import diagrama_bd.base_de_datos.Cliente;
 import diagrama_bd.base_de_datos.Incidencia;
@@ -53,7 +55,7 @@ public class MisContratos extends MisContratos_V {
 			else
 				textContratos.setValue(servElegido.getCaracteristicas());
 			
-			btnModificarContrato.setEnabled(true);
+			//btnModificarContrato.setEnabled(true);
 			btnSolicitarBaja.setEnabled(true);
 		});
 		
@@ -66,6 +68,7 @@ public class MisContratos extends MisContratos_V {
 				
 			try {
 				ICliente.BajaCliente(cliente);
+				Notification.show("Se ha iniciado el trámite de baja");
 			} catch (PersistentException e) {
 				e.printStackTrace();
 			}			

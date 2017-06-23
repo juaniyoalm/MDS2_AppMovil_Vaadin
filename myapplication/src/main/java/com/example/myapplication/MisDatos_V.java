@@ -30,13 +30,13 @@ public class MisDatos_V extends CssLayout {
 	protected Label lblDNI;
 	protected Label lblOtro;
 	protected Label lblDomicilio;
-	protected TextField txtNombre;
-	protected TextField txtApellido1;
-	protected TextField txtApellido2;
-	protected TextField txtDNI;
+	protected Label txtNombre;
+	protected Label txtApellido1;
+	protected Label txtApellido2;
+	protected Label txtDNI;
 	protected TextField txtEmail;
 	protected TextField txtPass;
-	protected TextField txtDireccion;
+	protected Label txtDireccion;
 	protected Button btnGuardad;
 
 	public MisDatos_V() {

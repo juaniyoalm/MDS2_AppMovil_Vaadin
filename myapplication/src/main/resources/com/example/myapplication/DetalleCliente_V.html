@@ -6,69 +6,71 @@
   <meta name="vaadin-version" content="8.0.0">
  </head>
  <body>
-  <vaadin-vertical-layout>
-   <vaadin-label width-full plain-text>
+  <vaadin-vertical-layout size-auto>
+   <vaadin-label width-full plain-text _id="lblDNI">
      0000000B 
    </vaadin-label>
-   <vaadin-vertical-layout>
+   <vaadin-vertical-layout width="39.4%">
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Nombre 
+     <vaadin-label width="99px" plain-text>
+       Nombre: 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblNombre">
        Cristiano 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Apellido1 
+     <vaadin-label width="99px" plain-text>
+       Apellido 1: 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblApellido1">
        Ronaldo 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Apellido2 
+     <vaadin-label width="99px" plain-text>
+       Apellido : 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblApellido2">
        Nazario 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Domicilio 
+     <vaadin-label width="99px" plain-text>
+       Domicilio: 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblDomicilio">
        Calle falsa 123 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       email 
+     <vaadin-label width="99px" plain-text>
+       Email: 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblEmail">
        cr7@marcelo.com 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       IBAN 
+     <vaadin-label width="99px" plain-text>
+       IBAN: 
      </vaadin-label>
-     <vaadin-label plain-text>
+     <vaadin-label plain-text _id="lblIBAN">
        0000 0000 0000 0000 
      </vaadin-label>
     </vaadin-horizontal-layout>
     <vaadin-horizontal-layout>
-     <vaadin-label plain-text>
-       Servicio 
+     <vaadin-label width="99px" plain-text>
+       Servicio: 
      </vaadin-label>
-     <vaadin-label plain-text>
-       Ilusion* 
-     </vaadin-label>
+     <vaadin-combo-box data-item-type="diagrama_bd.base_de_datos.Servicio" _id="boxServicios"></vaadin-combo-box>
     </vaadin-horizontal-layout>
-    <vaadin-horizontal-layout width-full>
-     <vaadin-button plain-text :right>
+    <vaadin-absolute-layout size-auto _id="absolute"></vaadin-absolute-layout>
+    <vaadin-horizontal-layout width-full :middle :right>
+     <vaadin-button plain-text _id="btnModificar">
+       Modificar 
+     </vaadin-button>
+     <vaadin-button plain-text _id="btnCerrar" :middle :right>
        Cerrar 
      </vaadin-button>
     </vaadin-horizontal-layout>

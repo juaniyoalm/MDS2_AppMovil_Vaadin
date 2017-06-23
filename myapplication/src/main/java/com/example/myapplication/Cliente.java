@@ -37,6 +37,7 @@ public class Cliente extends ZonaComun implements View{
 		iconosF.addComponent(mc);
 		
 		zmc.button1.addClickListener(ClickEvent -> {
+			mc = new MisContratos(cl);
 			iconosF.removeComponent(md);
 			iconosF.removeComponent(mf);
 			iconosF.removeComponent(mi);
@@ -44,6 +45,7 @@ public class Cliente extends ZonaComun implements View{
 		});
 		
 		zmc.button2.addClickListener(ClickEvent -> {
+			md = new MisDatos(cl);
 			iconosF.removeComponent(mc);
 			iconosF.removeComponent(mf);
 			iconosF.removeComponent(mi);
@@ -51,6 +53,7 @@ public class Cliente extends ZonaComun implements View{
 		});
 		
 		zmc.button3.addClickListener(ClickEvent -> {
+			mf = new MisFacturas(cl);
 			iconosF.removeComponent(mc);
 			iconosF.removeComponent(md);
 			iconosF.removeComponent(mi);
@@ -58,6 +61,7 @@ public class Cliente extends ZonaComun implements View{
 		});
 		
 		zmc.button4.addClickListener(ClickEvent -> {
+			mi = new MisIncidencias(cl);
 			iconosF.removeComponent(mc);
 			iconosF.removeComponent(md);
 			iconosF.removeComponent(mf);

@@ -42,14 +42,14 @@ public class InicioSesion extends InicioSesion_V implements View {
 		
 		
 		
-		Binder<String> binder = new Binder<String>();
-        Binding<String, String> binding = binder.forField(usuarioTextFiekd)
-                .withValidator((value, context) -> value.isEmpty()
-                        ? ValidationResult.error("Empty value not allowed")
-                        : ValidationResult.ok()).bind(string -> string, null);
-        
-        
-        binder.setBean("Initial Value"); // goes to textfield directly
+//		Binder<String> binder = new Binder<String>();
+//        Binding<String, String> binding = binder.forField(usuarioTextFiekd)
+//                .withValidator((value, context) -> value.isEmpty()
+//                        ? ValidationResult.error("Empty value not allowed")
+//                        : ValidationResult.ok()).bind(string -> string, null);
+//        
+//        
+//        binder.setBean("Initial Value"); // goes to textfield directly
 		
 		
 		

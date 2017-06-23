@@ -70,7 +70,8 @@ public class Administrador extends ZonaComun implements View {
 		});
 		
 
-		
+		ca.nombreLabel.setValue("");
+		ca.nombreLabel.setCaption("Bienvenido " + admin.getNombre());
 	}
 
 	@Override

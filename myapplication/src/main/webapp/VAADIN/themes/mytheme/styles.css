@@ -12614,6 +12614,10 @@ div.v-layout.v-horizontal.v-widget {
 	background: black !important;
 }
 
+.mytheme .mystyleFondo {
+	background-color: black !important;
+}
+
 .mytheme .margenesO {
 	margin-left: 13%;
 }
