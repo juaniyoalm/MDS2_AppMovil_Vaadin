@@ -2,6 +2,7 @@ package diagrama_bd.base_de_datos.Diagrama_BD;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.TreeMap;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
@@ -9,6 +10,7 @@ import org.jsoup.select.NodeVisitor;
 import org.orm.PersistentException;
 import org.orm.PersistentTransaction;
 
+import com.example.myapplication.Admin_Comerciales;
 import com.example.myapplication.Admin_Incidencias;
 import com.example.myapplication.ZonaClientes;
 
@@ -20,6 +22,12 @@ import diagrama_bd.base_de_datos.Incidencia;
 import diagrama_bd.base_de_datos.IncidenciaDAO;
 import diagrama_bd.base_de_datos.Servicio;
 import diagrama_bd.base_de_datos.ServicioDAO;
+import diagrama_bd.base_de_datos.ServicioTV;
+import diagrama_bd.base_de_datos.ServicioTVDAO;
+import diagrama_bd.base_de_datos.ServiciosCombi;
+import diagrama_bd.base_de_datos.ServiciosCombiDAO;
+import diagrama_bd.base_de_datos.ServiciosFFM;
+import diagrama_bd.base_de_datos.ServiciosFFMDAO;
 import diagrama_bd.base_de_datos.Diagrama_BD.Base_de_datos.BD_Principal;
 
 public class IAdministrador {
@@ -208,5 +216,176 @@ public class IAdministrador {
 			t.rollback();
 			e.printStackTrace();
 		}
+	}
+
+	// JUAN
+		public static boolean addComercial(Comercial nuevoComercialARellenar) throws PersistentException {
+		ConexionBD conexion 	= new ConexionBD();
+		PersistentTransaction addCom = conexion.beginT();
+		boolean correcto = false;
+		try {
+			correcto = ComercialDAO.save(nuevoComercialARellenar);
+			addCom.commit();
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			addCom.rollback();
+			e.printStackTrace();
+		}
+		return correcto;
+	}
+	
+	/*
+	 * saca todos los comerciales a granel de la base de datos y los devuelve
+	 * en un ArrayList.
+	 */
+	public static ArrayList<Comercial> volcarComerciales() {
+		ArrayList<Comercial> comercialesDisponibles = new ArrayList<Comercial>();
+		try {
+			Comercial[] comercialesLeidos = ComercialDAO.listComercialByQuery("nComercial>0", "Nombre");
+			
+			for (int i = 0; i < comercialesLeidos.length; i++) {
+				comercialesDisponibles.add(comercialesLeidos[i]);
+			}
+		} catch (PersistentException e) {
+			e.printStackTrace();
+		}
+		
+		return comercialesDisponibles;
+	}
+
+	/*
+	 * Elimina al comercial recibido por parametro de la base de datos
+	 */
+	public static void delComercial(Comercial comercialABorrar) throws PersistentException {
+		ConexionBD conexion 			= new ConexionBD();
+		PersistentTransaction delCom 	= conexion.beginT();
+		boolean correcto = false;
+		try {
+			correcto = ComercialDAO.delete(comercialABorrar);
+			delCom.commit();
+		} catch (PersistentException e) {
+			delCom.rollback();
+			e.printStackTrace();
+		}
+		
+	}
+
+		public static TreeMap<Integer, ArrayList<Servicio>> volcarServicios() {
+		TreeMap<Integer, ArrayList<Servicio>> listaServicios = new TreeMap<Integer, ArrayList<Servicio>>();
+		
+		ArrayList<Servicio> servFFMDisponibles = new ArrayList<Servicio>();
+		ServiciosFFM[] servFFMLeidos;
+		
+		ArrayList<Servicio> servTVDisponibles = new ArrayList<Servicio>();
+		ServicioTV[] servTVLeidos;
+		
+		ArrayList<Servicio> servCombiDisponibles = new ArrayList<Servicio>();
+		ServiciosCombi[] servCombiLeidos;
+				
+		try {
+			servFFMLeidos = ServiciosFFMDAO.listServiciosFFMByQuery("NServicio>0", "ID");
+			for (int i = 0; i < servFFMLeidos.length; i++) {
+				servFFMDisponibles.add(servFFMLeidos[i]);
+			}
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			servTVLeidos = ServicioTVDAO.listServicioTVByQuery("NServicio>0", "ID");
+			for (int i = 0; i < servTVLeidos.length; i++) {
+				servTVDisponibles.add(servTVLeidos[i]);
+			}
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		try {
+			servCombiLeidos = ServiciosCombiDAO.listServiciosCombiByQuery("NServicio>0", "ID");
+			for (int i = 0; i < servCombiLeidos.length; i++) {
+				servCombiDisponibles.add(servCombiLeidos[i]);
+			}
+		} catch (PersistentException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		listaServicios.put(1, servFFMDisponibles);
+		listaServicios.put(2, servTVDisponibles);
+		listaServicios.put(3, servCombiDisponibles);
+		return listaServicios;
+	}
+
+	/*
+	 * modifica el servicio recibido como parametro
+	 */
+	public static boolean updateServicio(Servicio s) throws PersistentException {
+		ConexionBD conexion 			= new ConexionBD();
+		PersistentTransaction modServ 	= conexion.beginT();
+		boolean correcto = false;
+		
+		try {
+			correcto = ServicioDAO.save(s);
+			
+			modServ.commit();
+			
+		} catch (PersistentException e) {
+			modServ.rollback();
+			e.printStackTrace();
+		}
+		
+		
+		
+		return correcto;
+	}
+
+	/*
+	 * elimina el servicio recivido por parametro de la base de datos
+	 */
+	public static boolean delServicio(Servicio s) throws PersistentException {
+		ConexionBD conexion 			= new ConexionBD();
+		PersistentTransaction delServ 	= conexion.beginT();
+		boolean correcto = false;
+		
+		try {
+			correcto = ServicioDAO.delete(s);
+			delServ.commit();
+		} catch (PersistentException e) {
+			delServ.rollback();
+			e.printStackTrace();
+		}
+		return correcto;
+	}
+
+	
+	public static boolean addServicioFFM(Servicio s) throws PersistentException {
+		ConexionBD conexion 				= new ConexionBD();
+		PersistentTransaction addServFFM 	= conexion.beginT();
+		TreeMap<Integer, ArrayList<Servicio>> losServicios = new TreeMap<Integer, ArrayList<Servicio>>();
+		losServicios = volcarServicios();
+		
+//		for (TreeMap<Integer, ArrayList<Servicio>> u : losServicios) {
+//			
+//		}
+		int nSFFM = (losServicios.get(1).size() + 1);
+		
+		
+		ServiciosFFM nuevoServicioARellenarFFM = new ServiciosFFM();
+		nuevoServicioARellenarFFM.setNombre(s.getNombre());
+		nuevoServicioARellenarFFM.setPrecio(s.getPrecio());
+		nuevoServicioARellenarFFM.setCaracteristicas(s.getCaracteristicas());
+		nuevoServicioARellenarFFM.setnServFFM(nSFFM);
+		
+		boolean correcto = false;
+		try {
+			correcto = ServicioDAO.save(nuevoServicioARellenarFFM);
+			addServFFM.commit();
+		} catch (PersistentException e) {
+			addServFFM.rollback();
+			e.printStackTrace();
+		}
+		return correcto;
 	}
 }

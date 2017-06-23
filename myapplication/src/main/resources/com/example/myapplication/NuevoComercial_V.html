@@ -6,51 +6,63 @@
   <meta name="vaadin-version" content="8.0.0">
  </head>
  <body>
-  <vaadin-vertical-layout>
-   <vaadin-label width-full plain-text>
-     Nº Comercial 00000000B 
+  <vaadin-vertical-layout width="589px">
+   <vaadin-label width-full plain-text _id="tituloAddComercial">
+     Nuevo Comercial 
    </vaadin-label>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
       DNI/NIF 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialDNI"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
       Nombre 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialNombre"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
       Apellido1 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialApellido1"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
       Apellido2 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialApellido2"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
       Domicilio 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialDomicilio"></vaadin-text-field>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout width-full>
+   <vaadin-horizontal-layout width="134.3%">
     <vaadin-label plain-text>
-      email 
+      Email 
     </vaadin-label>
-    <vaadin-text-field></vaadin-text-field>
+    <vaadin-text-field _id="nuevoComercialEmail"></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width="134.3%">
+    <vaadin-label width="69px" plain-text>
+      Password 
+    </vaadin-label>
+    <vaadin-text-field _id="nuevoComercialPassword1"></vaadin-text-field>
+   </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width="134.3%">
+    <vaadin-label plain-text>
+      repitePassword 
+    </vaadin-label>
+    <vaadin-text-field _id="nuevoComercialPassword2"></vaadin-text-field>
    </vaadin-horizontal-layout>
    <vaadin-horizontal-layout :right>
-    <vaadin-button plain-text :right>
+    <vaadin-button plain-text _id="btnCancelar" :right>
       Cancelar 
     </vaadin-button>
-    <vaadin-button plain-text :right>
+    <vaadin-button plain-text _id="guardarComercialEnBD" :right>
       Aceptar 
     </vaadin-button>
    </vaadin-horizontal-layout>

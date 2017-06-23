@@ -6,50 +6,49 @@
   <meta name="vaadin-version" content="8.0.0">
  </head>
  <body>
-  <vaadin-vertical-layout>
+  <vaadin-vertical-layout size-auto>
    <vaadin-label width-full plain-text>
      Nº Comercial 00000000B 
    </vaadin-label>
-   <vaadin-horizontal-layout size-full :expand>
+   <vaadin-horizontal-layout width-full>
     <vaadin-label plain-text>
       Nombre 
     </vaadin-label>
-    <vaadin-label plain-text>
-      Comercial1 
-    </vaadin-label>
+    <vaadin-label plain-text _id="comercialNombre"></vaadin-label>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout size-full>
+   <vaadin-horizontal-layout width-full>
     <vaadin-label plain-text>
       Apellido1 
     </vaadin-label>
-    <vaadin-label plain-text>
-      Ape1 
-    </vaadin-label>
+    <vaadin-label plain-text _id="comercialApellido1"></vaadin-label>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout size-full>
+   <vaadin-horizontal-layout width-full>
     <vaadin-label plain-text>
       Apellido2 
     </vaadin-label>
-    <vaadin-label plain-text>
-      Ape2 
-    </vaadin-label>
+    <vaadin-label plain-text _id="comercialApellido2"></vaadin-label>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout size-full>
+   <vaadin-horizontal-layout width-full>
     <vaadin-label plain-text>
       Domicilio 
     </vaadin-label>
-    <vaadin-label plain-text>
-      Calle falsa 123 
-    </vaadin-label>
+    <vaadin-label plain-text _id="comercialDomicilio"></vaadin-label>
    </vaadin-horizontal-layout>
-   <vaadin-horizontal-layout size-full>
+   <vaadin-horizontal-layout width-full>
     <vaadin-label plain-text>
       email 
     </vaadin-label>
-    <vaadin-label plain-text>
-      comercial1@phonebahia.com 
-    </vaadin-label>
+    <vaadin-label plain-text _id="comercialEmail"></vaadin-label>
    </vaadin-horizontal-layout>
+   <vaadin-horizontal-layout width-full>
+    <vaadin-button plain-text _id="btnModificarComercial">
+      Modificar 
+    </vaadin-button>
+    <vaadin-button plain-text _id="btnCerrarComercial" :middle :right>
+      Cerrar 
+    </vaadin-button>
+   </vaadin-horizontal-layout>
+   <vaadin-absolute-layout size-auto _id="layoutUpdateComercial"></vaadin-absolute-layout>
   </vaadin-vertical-layout>
  </body>
 </html>
