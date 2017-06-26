@@ -69,6 +69,7 @@ public class Admin_Comerciales extends Admin_Comerciales_V {
 		 */
 		nuevoComercial.addClickListener(ClickEvent -> {
 			vistaNuevoComercial = new NuevoComercial();
+			vistaNuevoComercial.tituloAddComercial.setValue("Nuevo Comercial");
 			pv = new PopupView("", vistaNuevoComercial);
 			pv.setHideOnMouseOut(false);
 			pv.setPopupVisible(true);

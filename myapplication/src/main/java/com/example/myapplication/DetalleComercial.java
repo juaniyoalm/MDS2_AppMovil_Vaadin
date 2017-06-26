@@ -34,6 +34,7 @@ public class DetalleComercial  extends DetalleComercial_V{
 		
 		btnModificarComercial.addClickListener(ClickEvent -> {
 			vistaUpdateComercial = new NuevoComercial(cm);
+			vistaUpdateComercial.tituloAddComercial.setValue("Modificar Comercial");
 			pv = new PopupView("", vistaUpdateComercial);
 			pv.setHideOnMouseOut(false);
 			pv.setPopupVisible(true);

@@ -29,8 +29,6 @@ public class Admin_Incidencias_V extends CssLayout {
 	protected AbsoluteLayout absoluteSin1;
 	protected VerticalLayout layoutCompletadas;
 	protected AbsoluteLayout absoluteSin2;
-	protected VerticalLayout layoutConsultar;
-	protected AbsoluteLayout absoluteSin3;
 
 	public Admin_Incidencias_V() {
 		Design.read(this);
